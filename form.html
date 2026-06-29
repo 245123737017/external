@@ -3,42 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jenkins Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h1 {
+            color: #0078d7;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fa3;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <form id="loginForm" action="/submit" method="post" novalidate>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br><br>
-        <input type="submit" value="Submit">
-        <p id="message" aria-live="polite" style="font-weight:600;"></p>
-    </form>
 
-    <script>
-        (function(){
-            const VALID_USERNAME = '245123737017';
-            const VALID_PASSWORD = '245123737017';
+<div class="container">
+    <h1>Jenkins Demo</h1>
+    <p>This page is deployed using Jenkins.</p>
 
-            const form = document.getElementById('loginForm');
-            const msg = document.getElementById('message');
+    <button onclick="showMessage()">Click Me</button>
 
-            form.addEventListener('submit', function(e){
-                e.preventDefault();
-                const u = document.getElementById('username').value.trim();
-                const p = document.getElementById('password').value;
+    <p id="message"></p>
+</div>
 
-                if(u === VALID_USERNAME && p === VALID_PASSWORD){
-                    msg.textContent = 'Credentials valid.';
-                    msg.style.color = 'green';
-                } else {
-                    msg.textContent = 'Invalid username or password.';
-                    msg.style.color = 'red';
-                }
-            });
-        })();
-    </script>
+<script>
+function showMessage() {
+    document.getElementById("message").innerHTML =
+        "Hello! Jenkins deployment is working.";
+}
+</script>
+
 </body>
 </html>
